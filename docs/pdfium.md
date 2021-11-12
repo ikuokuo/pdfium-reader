@@ -53,6 +53,11 @@ pdf_is_complete_lib = true  # Set for a static library build.
 is_component_build = false  # Disable component build (Though it should work)
 ```
 
+## See also
+
+- [Pre-compiled binaries of PDFium](https://github.com/bblanchon/pdfium-binaries)
+- [QtWebEngine / QtPdf](https://code.qt.io/cgit/qt/qtwebengine.git/tree/src)
+
 ## References
 
 - [PDFium / README](https://pdfium.googlesource.com/pdfium/)
