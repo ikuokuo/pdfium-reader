@@ -4,6 +4,7 @@ set(MY_CURR ${CMAKE_CURRENT_LIST_DIR})
 
 set(names
   pdf_info
+  pdf_render
 )
 
 foreach(name IN LISTS names)
@@ -13,6 +14,12 @@ foreach(name IN LISTS names)
   )
   target_link_libraries(${name} pdfium)
   target_copy_libraries(${name} pdfium)
+  target_include_directories(${name} PRIVATE
+    ${MY_ROOT}/third_party/stb
+  )
+  target_compile_options(${name} PRIVATE
+    "-Wno-missing-field-initializers"
+  )
 endforeach()
 
 # install

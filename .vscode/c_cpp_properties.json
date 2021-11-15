@@ -3,7 +3,9 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/third_party/pdfium-mac-x64/include"
+                "${workspaceFolder}/third_party/pdfium-mac-x64/include",
+                "${workspaceFolder}/third_party/pdfium-mac-x64/include/cpp",
+                "${workspaceFolder}/third_party/stb"
             ],
             "defines": [],
             "macFrameworkPath": [],
