@@ -8,6 +8,10 @@ add_executable(pdfium_start
 target_link_libraries(pdfium_start pdfium)
 target_copy_libraries(pdfium_start pdfium)
 
+# samples/further
+
+add_subdirectory(${MY_CURR}/further)
+
 # install
 
 install(TARGETS pdfium_start
