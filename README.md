@@ -21,9 +21,9 @@
 ### Samples
 
 - [pdfium_start](samples/pdfium_start.c): sample in [PDFium / Getting Started](https://pdfium.googlesource.com/pdfium/+/refs/heads/main/docs/getting-started.md)
-- further/
-  - [pdf_info](samples/further/pdf_info.cc): print pdf meta data, page infos
-  - [pdf_render](samples/further/pdf_render.cc): render pdf pages to png files
+- pdf/
+  - [pdf_info](samples/pdf/pdf_info.cc): print pdf meta data, page infos
+  - [pdf_render](samples/pdf/pdf_render.cc): render pdf pages to png files
 
 ## License
 

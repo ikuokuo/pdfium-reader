@@ -31,24 +31,15 @@ include_directories(
 )
 
 set(MY_OUTPUT "${MY_ROOT}/_output")
-
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${MY_OUTPUT}/lib")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${MY_OUTPUT}/lib")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${MY_OUTPUT}/bin")
-foreach(CONFIG ${CMAKE_CONFIGURATION_TYPES})
-  string(TOUPPER ${CONFIG} CONFIG)
-  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${CONFIG} ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
-  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${CONFIG} ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
-  set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${CONFIG} ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
-endforeach()
+set_outdir(
+  ARCHIVE "${MY_OUTPUT}/lib"
+  LIBRARY "${MY_OUTPUT}/lib"
+  RUNTIME "${MY_OUTPUT}/bin"
+)
 
 set(MY_TARGETS )
 
 ## pdfium_reader
-
-# samples
-
-add_subdirectory(${MY_ROOT}/samples)
 
 # install
 
@@ -75,3 +66,7 @@ install(TARGETS ${MY_TARGETS}
 
 #install(IMPORTED_RUNTIME_ARTIFACTS pdfium)
 install(FILES ${PDFium_LIBRARY} DESTINATION ${CMAKE_INSTALL_BINDIR})
+
+# samples
+
+add_subdirectory(${MY_ROOT}/samples)
