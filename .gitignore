@@ -6,3 +6,5 @@
 
 /third_party/chromium/
 /third_party/pdfium*/
+
+imgui.ini

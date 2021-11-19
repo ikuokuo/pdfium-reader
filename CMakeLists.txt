@@ -3,6 +3,7 @@ project(pdfium-reader VERSION 1.0.0 LANGUAGES C CXX)
 
 set(MY_NAME ${PROJECT_NAME})
 set(MY_ROOT ${PROJECT_SOURCE_DIR})
+get_filename_component(MY_3RDPARTY "${MY_ROOT}/third_party" REALPATH)
 
 include(${MY_ROOT}/cmake/global.cmake)
 
@@ -12,9 +13,33 @@ include(${MY_ROOT}/cmake/global.cmake)
 
 find_package(Threads REQUIRED)
 
+## opengl
+
+include(${MY_ROOT}/cmake/detect_gl.cmake)
+
+## imgui
+
+set(ImGui_DIR "${MY_3RDPARTY}/imgui")
+message(STATUS "ImGui_DIR: ${ImGui_DIR}")
+
+set(ImGui_SRCS
+  ${ImGui_DIR}/imgui.cpp
+  ${ImGui_DIR}/imgui_demo.cpp
+  ${ImGui_DIR}/imgui_draw.cpp
+  ${ImGui_DIR}/imgui_tables.cpp
+  ${ImGui_DIR}/imgui_widgets.cpp
+  ${ImGui_DIR}/backends/imgui_impl_glfw.cpp
+  ${ImGui_DIR}/backends/imgui_impl_opengl3.cpp
+)
+add_library(imgui STATIC ${ImGui_SRCS})
+target_include_directories(imgui PUBLIC
+  "$<BUILD_INTERFACE:${ImGui_DIR}>"
+  "$<BUILD_INTERFACE:${ImGui_DIR}/backends>"
+)
+
 ## pdfium
 
-set(PDFium_DIR ${MY_ROOT}/third_party/pdfium-${HOST_OS}-${HOST_ARCH})
+set(PDFium_DIR ${MY_3RDPARTY}/pdfium-${HOST_OS}-${HOST_ARCH})
 message(STATUS "PDFium libs path: ${PDFium_DIR}")
 if(IS_DIRECTORY ${PDFium_DIR})
   message(STATUS "PDFium libs found")
@@ -28,6 +53,8 @@ endif()
 # targets
 
 include_directories(
+  ${MY_ROOT}/src
+  ${GL_INCLUDE_DIRS}
 )
 
 set(MY_OUTPUT "${MY_ROOT}/_output")

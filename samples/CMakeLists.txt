@@ -12,6 +12,10 @@ target_copy_libraries(pdfium_start pdfium)
 
 add_subdirectory(${MY_CURR}/pdf)
 
+# samples/ui
+
+add_subdirectory(${MY_CURR}/ui)
+
 # install
 
 install(TARGETS pdfium_start

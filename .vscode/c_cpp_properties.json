@@ -3,9 +3,14 @@
         {
             "name": "Mac",
             "includePath": [
+                "${workspaceFolder}/src",
+                "${workspaceFolder}/third_party/glm",
+                "${workspaceFolder}/third_party/imgui",
+                "${workspaceFolder}/third_party/imgui/backends",
                 "${workspaceFolder}/third_party/pdfium-mac-x64/include",
                 "${workspaceFolder}/third_party/pdfium-mac-x64/include/cpp",
-                "${workspaceFolder}/third_party/stb"
+                "${workspaceFolder}/third_party/stb",
+                "/usr/local/opt/glfw/include"
             ],
             "defines": [],
             "macFrameworkPath": [],
