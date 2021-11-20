@@ -7,6 +7,14 @@ get_filename_component(MY_3RDPARTY "${MY_ROOT}/third_party" REALPATH)
 
 include(${MY_ROOT}/cmake/global.cmake)
 
+set(MY_APPNAME "PDFium Reader")
+set(MY_VERSION ${PROJECT_VERSION})
+set_version_values(MY_VERSION)
+
+# configs
+
+configure_file(src/config.h.in ${MY_ROOT}/src/config.h @ONLY)
+
 # packages
 
 ## threads
@@ -37,6 +45,12 @@ target_include_directories(imgui PUBLIC
   "$<BUILD_INTERFACE:${ImGui_DIR}/backends>"
 )
 
+## Native File Dialog
+
+set(NFD_DIR "${MY_3RDPARTY}/nativefiledialog")
+message(STATUS "NFD_DIR: ${NFD_DIR}")
+add_subdirectory(${NFD_DIR})
+
 ## pdfium
 
 set(PDFium_DIR ${MY_3RDPARTY}/pdfium-${HOST_OS}-${HOST_ARCH})
@@ -66,7 +80,7 @@ set_outdir(
 
 set(MY_TARGETS )
 
-## pdfium_reader
+include(${MY_ROOT}/src/CMakeLists.txt)
 
 # install
 
