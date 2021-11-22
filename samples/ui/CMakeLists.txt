@@ -17,7 +17,7 @@ if(GLEW_FOUND)
   list(APPEND _demos glfw_demo)
 
   add_executable(glfw_demo
-    ${MY_ROOT}/src/base/glfw_base.cc
+    ${MY_ROOT}/src/ui/base/glfw_base.cc
     ${MY_CURR}/glfw_demo.cc
   )
   target_link_libraries(glfw_demo ${GL_LIBS} GLEW::GLEW)
@@ -30,8 +30,8 @@ endif()
 list(APPEND _demos imgui_demo)
 
 add_executable(imgui_demo
-  ${MY_ROOT}/src/base/glfw_base.cc
-  ${MY_ROOT}/src/base/imgui_base.cc
+  ${MY_ROOT}/src/ui/base/glfw_base.cc
+  ${MY_ROOT}/src/ui/base/imgui_base.cc
   ${MY_CURR}/imgui_demo.cc
 )
 target_link_libraries(imgui_demo ${GL_LIBS} imgui)
