@@ -1,12 +1,8 @@
 #include "glfw_base.h"
+#include "glfw.hpp"
 
 #include <cassert>
 #include <iostream>
-
-#ifdef __APPLE__
-#define GL_SILENCE_DEPRECATION
-#endif
-#include <GLFW/glfw3.h>
 
 namespace {
 
@@ -133,7 +129,7 @@ void GlfwBase::SetCallback(Callback callback) {
   callback_ = callback;
 }
 
-int GlfwBase::Run(const GlfwOptions &options, GlfwRunCallback callback) {
+int GlfwBase::Run(const GlfwOptions &options, RunCallback callback) {
   GLFWwindow *glfw_window = Create(options);
   if (!glfw_window) return 1;
 

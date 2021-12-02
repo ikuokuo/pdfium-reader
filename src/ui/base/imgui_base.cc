@@ -1,9 +1,5 @@
 #include "imgui_base.h"
-
-#ifdef __APPLE__
-#define GL_SILENCE_DEPRECATION
-#endif
-#include <GLFW/glfw3.h>
+#include "glfw.hpp"
 
 ImGuiBase::ImGuiBase() : GlfwBase::GlfwBase() {
 }

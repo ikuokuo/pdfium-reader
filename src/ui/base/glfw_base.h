@@ -1,17 +1,24 @@
 #pragma once
 
+#include <functional>
 #include <memory>
 #include <string>
 
 #include "glm/vec4.hpp"
 
-#include "glfw_base_types.h"
-
 struct GLFWwindow;
+
+struct GlfwOptions {
+  int width;
+  int height;
+  std::string title;
+};
+class GlfwBaseCallback;
 
 class GlfwBase {
  public:
   using Callback = std::shared_ptr<GlfwBaseCallback>;
+  using RunCallback = std::function<void(GlfwBase *)>;
 
   GlfwBase();
   virtual ~GlfwBase();
@@ -33,7 +40,7 @@ class GlfwBase {
 
   virtual int Run(
       const GlfwOptions &options = GlfwOptions{},
-      GlfwRunCallback callback = nullptr);
+      RunCallback callback = nullptr);
 
  protected:
   virtual void OnWindowCreateBefore();
@@ -55,4 +62,23 @@ class GlfwBase {
 
   bool quit_;
   glm::vec4 clear_color_;
+};
+
+class GlfwBaseCallback {
+ public:
+  virtual ~GlfwBaseCallback() = default;
+
+  virtual void OnWindowCreateBefore(GlfwBase *) {}
+  virtual void OnWindowCreateAfter(GlfwBase *, GLFWwindow *) {}
+
+  virtual void OnCreate(GlfwBase *) {}
+  virtual void OnDraw(GlfwBase *) {}
+  virtual void OnDestory(GlfwBase *) {}
+
+  // Return true to override the original behavior
+  virtual bool IsWindowCreateBeforeOverride(GlfwBase *) { return false; }
+  virtual bool IsWindowCreateAfterOverride(GlfwBase *, GLFWwindow *) {
+    return false;
+  }
+  virtual bool IsDrawOverride(GlfwBase *) { return false; }
 };

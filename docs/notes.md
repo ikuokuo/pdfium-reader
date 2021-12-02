@@ -25,4 +25,7 @@ git submodule add https://github.com/btzy/nativefiledialog-extended.git third_pa
 #  debian/ubuntu
 sudo apt install libgtk-3-dev
 #  win: ole32.lib, uuid.lib
+
+# stb: https://github.com/nothings/stb
+git submodule add https://github.com/nothings/stb.git third_party/stb
 ```

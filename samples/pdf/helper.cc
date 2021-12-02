@@ -41,6 +41,7 @@ void PrintLastError() {
 }
 
 std::string DateToRFC3399(const std::string &str) {
+  if (str.empty()) return str;
   std::string s = str;
   if (strings::StartsWith(s, "D:")) {
     s.erase(0, 2);
