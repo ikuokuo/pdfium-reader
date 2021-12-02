@@ -1,5 +1,9 @@
 # PDFium Reader
 
+## Overview
+
+![](docs/overview.gif)
+
 ## How to build
 
 1. Get the code and its dependencies
