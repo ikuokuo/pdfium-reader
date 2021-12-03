@@ -46,6 +46,9 @@ class EventManager {
  protected:
   void DispatchEvent(const std::shared_ptr<event_t> &e) {
     OnEvent(e);
+    if (event_callback_) {
+      event_callback_(e);
+    }
     if (HasEventCallback(e->id)) {
       event_callbacks_[e->id](e);
     }
