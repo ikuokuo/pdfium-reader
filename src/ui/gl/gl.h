@@ -25,7 +25,7 @@
 # if defined(MY_GL_INCLUDE_GLCOREARB)
 #  include <GL/glcorearb.h>
 # elif !defined(MY_GL_INCLUDE_NONE)
-#  include <GL/gl.h>
+#  include <GL/glew.h>
 #  if defined(MY_GL_INCLUDE_GLEXT)
 #   include <GL/glext.h>
 #  endif
