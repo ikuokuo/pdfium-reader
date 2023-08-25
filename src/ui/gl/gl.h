@@ -1,6 +1,6 @@
 #pragma once
 
-#define MY_GL_INCLUDE_GLCOREARB
+//#define MY_GL_INCLUDE_GLCOREARB
 #define MY_GL_INCLUDE_GLEXT
 // #define MY_GL_INCLUDE_GLU
 // #define MY_GL_INCLUDE_NONE
