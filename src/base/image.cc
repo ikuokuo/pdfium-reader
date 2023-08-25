@@ -124,7 +124,9 @@ int Image::GetBytesPerPixel(const Format &format) {
     case Format::BGRA:  return 4;
     case Format::RGB:   return 3;
     case Format::RGBA:  return 4;
-    default: LOG(FATAL) << "Unaccepted format";
+    default:
+      LOG(FATAL) << "Unaccepted format";
+      return 0;
   }
 }
 

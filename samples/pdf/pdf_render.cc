@@ -111,7 +111,7 @@ void PdfRenderPage(const std::string &pdf_name, FPDF_DOCUMENT doc, int index) {
     auto t_write = t.Elapsed();
 
     fprintf(stdout, "%s\n", img_name);
-    fprintf(stdout, " %02d: %dx%d, render=%lldms, write=%lldms\n",
+    fprintf(stdout, " %02d: %dx%d, render=%ldms, write=%ldms\n",
         index, width, height, t_render, t_write);
   } else {
     fprintf(stderr, "Page was too large to be rendered.\n");
