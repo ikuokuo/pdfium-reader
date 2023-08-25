@@ -18,10 +18,15 @@ if(NOT IS_DIRECTORY "${MY_3RDPARTY}/glm")
   message(FATAL_ERROR "MY_3RDPARTY/glm not exists: ${MY_3RDPARTY}/glm")
 endif()
 
+# glut
+
+find_package(GLUT REQUIRED)
+
 # GL_INCLUDE_DIRS
 
 set(GL_INCLUDE_DIRS
   ${GLFW3_INCLUDE_DIRS}
+  ${GLUT_INCLUDE_DIRS}
   ${MY_3RDPARTY}/glm
 )
 
